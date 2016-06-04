@@ -84,10 +84,16 @@ LISTEN_WS_TRANSPORT = None
 LISTEN_WSS_TRANSPORT = None
 
 # Salt used for Block Notify Password
-PASSWORD_SALT = 'some_crazy_string'
+# Choose a password for PASSWORD_SALT then in stratum-mining/scripts/ directory
+# Use the provided script with your PASSWORD_SALT to generate a sha256 hash ./generateAdminHash.sh 'mypassword'
+# Copy & Paste the hash as you ADMIN_PASSWORD_SHA256 
+# To use blocknotify add this line to your coind config file blocknotify=/path/to/stratum-mining/scripts/blocknotify.sh --password <your_password_salt> --host 127.0.0.1 --port 3333
+PASSWORD_SALT = 'mypassword'
+ADMIN_PASSWORD_SHA256 = '89e01536ac207279409d4de1e5253e01f4a1769e696db0d6062ca9b8f56767c8'
+ADMIN_RESTRICT_INTERFACE = '127.0.0.1'
 
 # ******************** Database  *********************
-DATABASE_DRIVER = 'mysql'       # Options: none, sqlite, postgresql or mysql
+DATABASE_DRIVER = 'none'       # Options: none, sqlite, postgresql or mysql
 DATABASE_EXTEND = False         # SQLite and PGSQL Only!
 
 # SQLite

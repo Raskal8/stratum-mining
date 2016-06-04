@@ -129,7 +129,7 @@ class BitcoinRPC(object):
     @defer.inlineCallbacks
     def getblocktemplate(self):
         try:
-            resp = (yield self._call('getblocktemplate', [{}]))
+            resp = (yield self._call('getblocktemplate', []))
             defer.returnValue(json.loads(resp)['result'])
         # if internal server error try getblocktemplate without empty {} # ppcoin
         except Exception as e:

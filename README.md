@@ -63,7 +63,43 @@ Other coins have been known to work with this implementation. I have tested with
 * Securecoin
 
 #Installation
+**************************************************************************************************
 
+sudo apt-get install -y python python-dev python-memcache python-setuptools python-twisted python-mysqldb python-pylibmc python-simplejson
+cd
+
+
+git clone --recursive https://github.com/raskal8/stratum-mining
+
+cd stratum-mining/externals/stratum/
+sudo python setup.py install
+
+cd stratum-mining/
+
+sudo easy_install -U distribute
+
+sudo easy_install stratum
+
+sudo easy_install simplejson
+
+sudo easy_install pylibmc
+
+
+sudo nano /usr/local/lib/python2.7/dist-packages/stratum-0.2.13-py2.7.egg/stratum/websocket_transport.py
+ADD "twisted" to the first line so it reads autobahn.twisted.websocket
+
+cd stratum-mining/conf/
+cp config_sample.py config.py
+EDIT config.py add your settings
+
+TO RUN
+
+cd stratum-mining/
+twistd -ny launcher.tac
+
+Remove the 'n' to run in the background 'twistd -y launcher.tac'
+
+***************************************************************************************************
 The installation of this *stratum-mining* can be found in the Repo Wiki. 
 
 #Contact
